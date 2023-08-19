@@ -55,9 +55,10 @@ inline int probe_func(unsigned int fd, char* buf, size_t count, enum IO_TYPE typ
         return 0;
     }
 
-    struct io_stat s = {};
-    s.time = 1;
-    s.size = count;
+    struct io_stat s = {
+        .time = 1,
+        .size = count,
+    };
 
     bpf_map_update_elem(&ines_map, &key, &s, 0);
     return 0;
