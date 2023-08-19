@@ -119,6 +119,7 @@ func NewVfsIo(pid uint32) (*VfsIoStat, error) {
 	if err := spec.LoadAndAssign(&objs, &opts); err != nil {
 		var ve *ebpf.VerifierError
 		if errors.As(err, &ve) {
+			fmt.Printf("loadAndAssign: \n %+v \n", ve)
 			return nil, fmt.Errorf("LoadAndAssign err: %+%v", ve)
 		}
 		return nil, err
