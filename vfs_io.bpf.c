@@ -15,6 +15,7 @@ enum IO_TYPE {
 };
 
 struct io_stat {
+    enum IO_TYPE type;
     unsigned int time;
     size_t size;
 };
@@ -56,6 +57,7 @@ inline int probe_func(unsigned int fd, char* buf, size_t count, enum IO_TYPE typ
     }
 
     struct io_stat s = {
+        .type = type,
         .time = 1,
         .size = count,
     };

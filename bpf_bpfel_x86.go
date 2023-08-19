@@ -19,8 +19,8 @@ type bpfIoKey struct {
 }
 
 type bpfIoStat struct {
+	Type uint32
 	Time uint32
-	_    [4]byte
 	Size uint64
 }
 
